@@ -39,9 +39,10 @@ const Navbar = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyItems: "center",
+                gap: "7px",
               }}
             >
-              <Image src={navLogo} alt="logo" height={100} width={100} />
+              <Image src={navLogo} alt="logo" height={45} width={45} />
               <Typography fontSize={"26px"} fontWeight={600}>
                 Flat Share
               </Typography>
@@ -76,7 +77,11 @@ const Navbar = () => {
               </Menu>
             </Box>
           ) : (
-            <Box sx={{ display: "flex", gap: "20px", alignItems: "center" }}>
+            <Box
+              sx={{ display: "flex", gap: "20px", alignItems: "center" }}
+              fontSize={"18px"}
+              fontWeight={500}
+            >
               <Link href={"/"} color="inherit">
                 Home
               </Link>
