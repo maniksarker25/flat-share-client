@@ -85,18 +85,13 @@ const Navbar = () => {
               <Link href={"/"} color="inherit">
                 Home
               </Link>
-              <Link href={"/"} color="inherit">
+              <Link href={"/about-us"} color="inherit">
                 About Us
               </Link>
               <Link href={"/"} color="inherit">
                 My Profile
               </Link>
-              <Button
-                href={"/"}
-                sx={{
-                  ml: "40px",
-                }}
-              >
+              <Button component={Link} href="/login" sx={{ ml: "30px" }}>
                 Login
               </Button>
             </Box>

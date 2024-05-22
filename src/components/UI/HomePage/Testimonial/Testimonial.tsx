@@ -7,42 +7,36 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import Image from "next/image";
 import { Box, Container, Stack, SxProps, Typography } from "@mui/material";
-import img1 from "@/assets/images/banner/grown-up-flat-share-1582411119__1_-removebg-preview.png";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-// Array of objects containing name, review description, and image
+import person1 from "@/assets/images/testimonial/person1.png";
+import person2 from "@/assets/images/testimonial/person2.jpg";
+import person3 from "@/assets/images/testimonial/person3.jpg";
+import person4 from "@/assets/images/testimonial/person4.png";
+
 const reviewItems = [
   {
-    name: "John Doe",
+    name: "Sara Johnson",
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet leo vel magna volutpat, nec efficitur quam tincidunt.",
-    image: img1,
+      "I found my ideal flatmate through this platform! The search filters were incredibly helpful.",
+    image: person1,
   },
   {
-    name: "Jane Smith",
+    name: "Michael Adams",
     review:
-      "Nullam congue, sem eget sollicitudin malesuada, augue tellus eleifend mi, quis feugiat odio justo vel purus.",
-    image: img1,
+      "As a landlord, I've had a fantastic experience using this website to find reliable tenants for my property.",
+    image: person3,
   },
   {
-    name: "Jane Smith",
+    name: "Nancy",
     review:
-      "Nullam congue, sem eget sollicitudin malesuada, augue tellus eleifend mi, quis feugiat odio justo vel purus.",
-    image: img1,
+      "Thanks to this website, I found a great flat in a location that suits my needs perfectly.",
+    image: person2,
   },
   {
-    name: "Jane Smith",
+    name: "Daniel Brown",
     review:
-      "Nullam congue, sem eget sollicitudin malesuada, augue tellus eleifend mi, quis feugiat odio justo vel purus.",
-    image: img1,
+      "I was hesitant about sharing a flat with strangers, but this platform made the process so easy. I connected with like-minded individuals",
+    image: person4,
   },
-  {
-    name: "Jane Smith",
-    review:
-      "Nullam congue, sem eget sollicitudin malesuada, augue tellus eleifend mi, quis feugiat odio justo vel purus.",
-    image: img1,
-  },
-
-  // Add more items as needed
 ];
 
 export default function Testimonial() {
@@ -89,15 +83,34 @@ export default function Testimonial() {
         >
           <div>
             <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Image
-                src={currentItem?.image}
-                alt="image"
-                width={300}
-                height={300}
-              />
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "150px",
+                  height: "150px",
+                }}
+              >
+                <Image
+                  src={currentItem?.image}
+                  alt="image"
+                  width={150}
+                  height={100}
+                  style={{ borderRadius: "100%" }}
+                />
+              </Box>
             </Box>
-            <Typography textAlign={"center"}>{currentItem.name}</Typography>
-            <Typography textAlign={"center"}>{currentItem.review}</Typography>
+            <Typography
+              textAlign={"center"}
+              variant="h5"
+              component={"h5"}
+              my={"5px"}
+            >
+              {currentItem.name}
+            </Typography>
+            <Typography textAlign={"center"} maxWidth={500}>
+              {currentItem.review}
+            </Typography>
           </div>
           <MobileStepper
             variant="dots"
