@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <Container>
       <Box position="static">
-        <Toolbar>
+        <Toolbar disableGutters>
           <Typography component="div" sx={{ flexGrow: 1 }}>
             <Box
               sx={{
