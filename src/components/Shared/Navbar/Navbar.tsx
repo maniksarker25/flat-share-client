@@ -35,6 +35,8 @@ const Navbar = () => {
         <Toolbar disableGutters>
           <Typography component="div" sx={{ flexGrow: 1 }}>
             <Box
+              component={Link}
+              href={"/"}
               sx={{
                 display: "flex",
                 alignItems: "center",
