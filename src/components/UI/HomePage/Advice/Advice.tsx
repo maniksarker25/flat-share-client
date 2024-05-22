@@ -12,10 +12,11 @@ const Advice = () => {
           fontWeight={550}
           fontSize={"28px"}
         >
-          Explore Available Flats
+          Advice for finding and sharing flats
         </Typography>
         <Typography>
-          Explore our top flat listings and find your ideal living space today
+          Unlock the secrets to successful flat hunting and sharing. Navigate
+          the rental landscape with expert tips and insider advice
         </Typography>
       </Box>
       <Stack

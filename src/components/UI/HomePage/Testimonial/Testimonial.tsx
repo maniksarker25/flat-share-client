@@ -61,7 +61,20 @@ export default function Testimonial() {
   const currentItem = reviewItems[activeStep];
 
   return (
-    <Container>
+    <Container sx={{ mt: "50px" }}>
+      <Box sx={{ textAlign: "center" }} mb={"30px"}>
+        <Typography
+          variant="h5"
+          component={"h5"}
+          fontWeight={550}
+          fontSize={"28px"}
+        >
+          Testimonial
+        </Typography>
+        <Typography>
+          See why our clients love us. Real stories, real satisfaction
+        </Typography>
+      </Box>
       <Box
         sx={{
           display: "flex",
