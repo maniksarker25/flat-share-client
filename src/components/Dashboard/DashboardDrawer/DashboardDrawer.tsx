@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import { Avatar, Badge, Stack } from "@mui/material";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SideBar from "../SideBar/SideBar";
+import AccountMenu from "../AccountMenu/AccountMenu";
 // import AccountMenu from "../AccountMenu/AccountMenu";
 const drawerWidth = 240;
 
@@ -78,19 +79,20 @@ export default function DashboardDrawer({
               noWrap
               component="div"
               color={"primary.main"}
+              mr={"20px"}
             >
               Welcome To Flat Share
             </Typography>
           </Box>
-          {/* <Stack direction="row" gap={3}>
-            <Badge badgeContent={1} color="primary">
-              <IconButton sx={{ background: "#ffffff" }}>
-                <NotificationsNoneIcon color="action" />
-              </IconButton>
-            </Badge>
-            <Avatar alt={data?.name} src={data?.profilePhoto} />
+          <Stack direction="row" gap={3}>
+            <Avatar
+              alt={"profilePhoto"}
+              src={
+                "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+              }
+            />
             <AccountMenu />
-          </Stack> */}
+          </Stack>
         </Toolbar>
       </AppBar>
       <Box

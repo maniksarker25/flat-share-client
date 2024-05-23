@@ -61,6 +61,25 @@ const Footer = () => {
               component={"h6"}
               mb={"15px"}
             >
+              Contact Information
+            </Typography>
+            <Box color={"white"}>
+              <Typography color={"white"}>
+                Email: flatshare@gmail.com
+              </Typography>
+              <Typography color={"white"} sx={{ my: "10px" }}>
+                Phone: +8801748545
+              </Typography>
+              <Typography color={"white"}>Location: Gazipur,Dhaka</Typography>
+            </Box>
+          </Box>
+          <Box>
+            <Typography
+              color={"white"}
+              variant="h6"
+              component={"h6"}
+              mb={"15px"}
+            >
               Follow Us
             </Typography>
             <Stack direction={"row"} gap={2}>
@@ -90,6 +109,20 @@ const Footer = () => {
             </Box>
           </Box>
         </Stack>
+        <Box
+          sx={{
+            border: "1px dashed lightgray",
+            mt: "20px",
+          }}
+        ></Box>
+        <Typography
+          component={"p"}
+          color={"white"}
+          sx={{ mt: "20px" }}
+          textAlign={"center"}
+        >
+          &copy;2024 MS Health Care.All Rights Reserved
+        </Typography>
       </Container>
     </Box>
   );
