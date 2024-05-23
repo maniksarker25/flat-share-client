@@ -11,7 +11,7 @@ import appStore from "@/assets/images/footer/app-store-apple.b35643c5.png";
 
 const Footer = () => {
   return (
-    <Box bgcolor={"rgb(17, 26, 34)"} py={5} mt={"50px"}>
+    <Box bgcolor={"rgb(17, 26, 34)"} py={5} mt={"100px"}>
       <Container>
         <Stack direction={{ md: "row" }} justifyContent={"space-between"}>
           <Box>

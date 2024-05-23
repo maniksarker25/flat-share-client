@@ -4,7 +4,7 @@ import ShareSteps from "./ShareSteps";
 
 const Advice = () => {
   return (
-    <Container sx={{ mt: "50px" }}>
+    <Container sx={{ mt: "100px" }}>
       <Box sx={{ textAlign: "center" }}>
         <Typography
           variant="h5"
