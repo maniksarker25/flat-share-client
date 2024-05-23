@@ -7,7 +7,14 @@ export const getUserInfo = () => {
     const decodedInfo: any = jwtDecode(authToken);
     return {
       ...decodedInfo,
-      role: decodedInfo?.role?.toLowerCase(),
+      role: decodedInfo?.role,
     };
+  }
+};
+
+export const isLoggedIn = () => {
+  const authToken = localStorage.getItem(authKey);
+  if (authToken) {
+    return !!authToken;
   }
 };
