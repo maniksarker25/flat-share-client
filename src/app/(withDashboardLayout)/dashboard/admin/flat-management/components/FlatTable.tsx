@@ -1,10 +1,26 @@
 import { TFlat } from "@/types/flat";
-import { Box, IconButton, Stack } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Link from "next/link";
+import { useDeleteFlatMutation } from "@/redux/api/flatApi";
+import { toast } from "sonner";
 const FlatTable = ({ flats }: { flats: TFlat[] }) => {
+  const [deleteFlat] = useDeleteFlatMutation();
+  const handleDeleteFlat = async (id: string) => {
+    try {
+      const res = await deleteFlat(id).unwrap();
+
+      if (res?.id) {
+        toast.success("Flat deleted successfully");
+      } else {
+        toast.error(res.message);
+      }
+    } catch (error: any) {
+      toast.error("Something went wrong");
+    }
+  };
   const columns: GridColDef[] = [
     { field: "squareFeet", headerName: "SquareFeet", flex: 1 },
     { field: "totalBedrooms", headerName: "Number Of Bedrooms", flex: 1 },
@@ -20,7 +36,7 @@ const FlatTable = ({ flats }: { flats: TFlat[] }) => {
         return (
           <Box>
             <IconButton
-              //   onClick={() => handleDelete(row.id)}
+              onClick={() => handleDeleteFlat(row.id)}
               aria-label="delete"
             >
               <DeleteIcon sx={{ color: "red" }} />
