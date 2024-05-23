@@ -6,9 +6,14 @@ import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FieldValues } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { registerValidationSchema } from "@/schemas/register";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
   const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleRegister = async (values: FieldValues) => {
     console.log(values);
@@ -19,7 +24,13 @@ const RegisterPage = () => {
         password: values?.password,
       };
       const res = await registerUser(registerValues);
-      console.log(res);
+
+      if (res?.success) {
+        toast.success("User registration successful");
+        router.push("/");
+      } else {
+        toast.error(res.message);
+      }
     } else {
       setError("Password and confirm password do not match");
     }
@@ -55,7 +66,10 @@ const RegisterPage = () => {
             </Box>
           </Stack>
           <Box textAlign={"center"}>
-            <FSForm onSubmit={handleRegister}>
+            <FSForm
+              onSubmit={handleRegister}
+              resolver={zodResolver(registerValidationSchema)}
+            >
               <Grid container spacing={3} my={1}>
                 <Grid item xs={12}>
                   <FSInput
