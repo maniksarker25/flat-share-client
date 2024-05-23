@@ -18,6 +18,7 @@ import navLogo from "@/assets/images/logo/house-share-logo-icon-design-vector-22
 import { getUserInfo, isLoggedIn } from "@/services/authServices";
 import { authKey } from "@/constants/auth";
 import { useRouter } from "next/navigation";
+import { logoutUser } from "@/services/actions/logoutUser";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -36,8 +37,7 @@ const Navbar = () => {
 
   const userInfo = getUserInfo();
   const handleLogout = () => {
-    localStorage.removeItem(authKey);
-    router.refresh();
+    logoutUser(router);
   };
 
   return (
