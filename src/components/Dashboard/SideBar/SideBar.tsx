@@ -34,7 +34,7 @@ const SideBar = () => {
       >
         <Image src={logo} alt="logo" width={40} height={40} />
         <Typography variant="h6" component={"h1"}>
-          MS Health Care
+          Flat Share
         </Typography>
       </Stack>
       <List>

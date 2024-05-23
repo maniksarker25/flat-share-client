@@ -10,6 +10,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { registerValidationSchema } from "@/schemas/register";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { loginUser } from "@/services/actions/loginUser";
+import { authKey } from "@/constants/auth";
 
 const RegisterPage = () => {
   const [error, setError] = useState("");
@@ -27,8 +29,15 @@ const RegisterPage = () => {
         const res = await registerUser(registerValues);
 
         if (res?.success) {
-          toast.success("User registration successful");
-          router.push("/");
+          const result = await loginUser({
+            email: values.email,
+            password: values.password,
+          });
+          if (result?.success) {
+            toast.success("User login successfully");
+            localStorage.setItem(authKey, result?.data?.token);
+            router.push("/");
+          }
         } else {
           toast.error(res.message);
         }
