@@ -9,7 +9,12 @@ import { FieldValues } from "react-hook-form";
 const RegisterPage = () => {
   const [error, setError] = useState("");
 
-  const handleLogin = async (values: FieldValues) => {};
+  const handleRegister = async (values: FieldValues) => {
+    if (values?.password === values?.confirmPassword) {
+    } else {
+      setError("Password and confirm password do not match");
+    }
+  };
   return (
     <Container>
       <Stack
@@ -41,7 +46,7 @@ const RegisterPage = () => {
             </Box>
           </Stack>
           <Box textAlign={"center"}>
-            <FSForm onSubmit={handleLogin}>
+            <FSForm onSubmit={handleRegister}>
               <Grid container spacing={3} my={1}>
                 <Grid item xs={12}>
                   <FSInput
