@@ -13,10 +13,18 @@ const userApi = baseApi.injectEndpoints({
     }),
     changeStatus: build.mutation({
       query: (data) => {
-        console.log(data?.userId);
-        console.log(data?.body);
         return {
           url: `/user/change-status/${data?.userId}`,
+          method: "PATCH",
+          data: data?.body,
+        };
+      },
+      invalidatesTags: [tagTypes.users],
+    }),
+    changeUserRole: build.mutation({
+      query: (data) => {
+        return {
+          url: `/user/change-role/${data?.userId}`,
           method: "PATCH",
           data: data?.body,
         };
@@ -26,4 +34,8 @@ const userApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetAllUserQuery, useChangeStatusMutation } = userApi;
+export const {
+  useGetAllUserQuery,
+  useChangeStatusMutation,
+  useChangeUserRoleMutation,
+} = userApi;
