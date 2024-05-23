@@ -20,7 +20,7 @@ const Advice = () => {
         </Typography>
       </Box>
       <Stack
-        direction={"row"}
+        direction={{ md: "row" }}
         justifyContent={"space-between"}
         alignItems={"center"}
         gap={"20px"}

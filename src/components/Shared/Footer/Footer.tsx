@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <Box bgcolor={"rgb(17, 26, 34)"} py={5} mt={"50px"}>
       <Container>
-        <Stack direction={"row"} justifyContent={"space-between"}>
+        <Stack direction={{ md: "row" }} justifyContent={"space-between"}>
           <Box>
             <Image src={logo} height={100} width={100} alt="logo" />
             <Typography color={"white"} variant="h5" component={"h5"}>

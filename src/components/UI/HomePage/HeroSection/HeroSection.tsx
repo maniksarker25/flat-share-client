@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <Container>
       <Stack
-        direction={"row"}
+        direction={{ lg: "row" }}
         gap={"20px"}
         justifyItems={"center"}
         justifyContent={"space-between"}
