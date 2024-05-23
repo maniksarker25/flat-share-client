@@ -10,6 +10,7 @@ import PaymentIcon from "@mui/icons-material/Payment";
 import KeyIcon from "@mui/icons-material/Key";
 import { TSideBarItem, TUserRole } from "@/types";
 import { USER_ROLE } from "@/constants/role";
+import HomeWorkIcon from "@mui/icons-material/HomeWork";
 export const generateSideBarItems = (role: TUserRole): TSideBarItem[] => {
   console.log(role);
   const menuItems: TSideBarItem[] = [];
@@ -17,7 +18,7 @@ export const generateSideBarItems = (role: TUserRole): TSideBarItem[] => {
   const defaultMenus = [
     {
       title: "Profile",
-      path: `${role}/profile`,
+      path: `profile`,
       icon: CalendarMonthIcon,
     },
     {
@@ -31,14 +32,14 @@ export const generateSideBarItems = (role: TUserRole): TSideBarItem[] => {
     case USER_ROLE.ADMIN:
       menuItems.push(
         {
-          title: "Dashboard",
-          path: `${role}`,
-          icon: DashboardIcon,
+          title: "User Management",
+          path: `${role}/user-management`,
+          icon: GroupIcon,
         },
         {
-          title: "Manage Users",
-          path: `${role}/manage-users`,
-          icon: GroupIcon,
+          title: "Flat Management",
+          path: `${role}/flat-management`,
+          icon: HomeWorkIcon,
         }
       );
       break;

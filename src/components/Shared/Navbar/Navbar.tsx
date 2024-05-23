@@ -15,7 +15,7 @@ import { Container } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
 import navLogo from "@/assets/images/logo/house-share-logo-icon-design-vector-22925067-removebg-preview.png";
-import { getUserInfo } from "@/services/authServices";
+import { getUserInfo, isLoggedIn } from "@/services/authServices";
 import { authKey } from "@/constants/auth";
 import { useRouter } from "next/navigation";
 
@@ -86,7 +86,7 @@ const Navbar = () => {
               >
                 <MenuItem href={"/"}>Home</MenuItem>
                 <MenuItem href={"/"}>About Us</MenuItem>
-                <MenuItem href={"/"}>My Profile</MenuItem>
+                {isLoggedIn() && <MenuItem href={"/"}>My Profile</MenuItem>}
                 <Box>
                   {userInfo?.email ? (
                     <Button color="error" onClick={handleLogout}>
@@ -112,9 +112,11 @@ const Navbar = () => {
               <Link href={"/about-us"} color="inherit">
                 About Us
               </Link>
-              <Link href={"/"} color="inherit">
-                My Profile
-              </Link>
+              {isLoggedIn() && (
+                <Link href={"/"} color="inherit">
+                  My Profile
+                </Link>
+              )}
               <Box>
                 {userInfo?.email ? (
                   <Button color="error" onClick={handleLogout}>

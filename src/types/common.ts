@@ -8,3 +8,5 @@ export type TSideBarItem = {
   icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">> & { muiName: string };
   child?: TSideBarItem[];
 };
+
+

@@ -7,7 +7,7 @@ export const getUserInfo = () => {
     const decodedInfo: any = jwtDecode(authToken);
     return {
       ...decodedInfo,
-      role: decodedInfo?.role,
+      role: decodedInfo?.role.toLowerCase(),
     };
   }
 };
