@@ -37,7 +37,7 @@ const UserTable = ({ users }: { users: any }) => {
         userId,
         body: { role },
       }).unwrap();
-      console.log(res);
+
       if (res?.id) {
         toast.success("User role updated successfully");
       } else {
