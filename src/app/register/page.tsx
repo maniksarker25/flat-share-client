@@ -18,18 +18,22 @@ const RegisterPage = () => {
   const handleRegister = async (values: FieldValues) => {
     console.log(values);
     if (values?.password === values?.confirmPassword) {
-      const registerValues = {
-        username: values?.username,
-        email: values?.email,
-        password: values?.password,
-      };
-      const res = await registerUser(registerValues);
+      try {
+        const registerValues = {
+          username: values?.username,
+          email: values?.email,
+          password: values?.password,
+        };
+        const res = await registerUser(registerValues);
 
-      if (res?.success) {
-        toast.success("User registration successful");
-        router.push("/");
-      } else {
-        toast.error(res.message);
+        if (res?.success) {
+          toast.success("User registration successful");
+          router.push("/");
+        } else {
+          toast.error(res.message);
+        }
+      } catch (error) {
+        toast.error("Something went wrong");
       }
     } else {
       setError("Password and confirm password do not match");

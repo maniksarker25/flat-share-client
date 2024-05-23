@@ -1,16 +1,36 @@
 "use client";
 import FSForm from "@/components/Forms/FSForm";
 import FSInput from "@/components/Forms/FSInput";
+import { authKey } from "@/constants/auth";
+import { loginValidationSchema } from "@/schemas/login";
+import { loginUser } from "@/services/actions/loginUser";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FieldValues } from "react-hook-form";
+import { toast } from "sonner";
 
 const LoginPage = () => {
   const [error, setError] = useState("");
+  const router = useRouter();
 
-  const handleLogin = async (values: FieldValues) => {};
+  const handleLogin = async (values: FieldValues) => {
+    try {
+      const res = await loginUser(values);
+      if (res?.success) {
+        toast.success("User login successfully");
+        localStorage.setItem(authKey, res?.data?.token);
+        router.push("/");
+      } else {
+        setError(res?.message);
+      }
+    } catch (error) {
+      toast.error("Something went wrong");
+    }
+  };
   return (
     <Container>
       <Stack
@@ -42,7 +62,10 @@ const LoginPage = () => {
             </Box>
           </Stack>
           <Box textAlign={"center"}>
-            <FSForm onSubmit={handleLogin}>
+            <FSForm
+              onSubmit={handleLogin}
+              resolver={zodResolver(loginValidationSchema)}
+            >
               <Grid container spacing={3} my={1}>
                 <Grid item xs={12}>
                   <FSInput
