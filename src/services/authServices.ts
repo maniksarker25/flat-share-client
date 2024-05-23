@@ -1,4 +1,5 @@
 import { authKey } from "@/constants/auth";
+import { getFromLocalStorage } from "@/utils/localStorage";
 import { jwtDecode } from "jwt-decode";
 
 export const getUserInfo = () => {
@@ -13,7 +14,7 @@ export const getUserInfo = () => {
 };
 
 export const isLoggedIn = () => {
-  const authToken = localStorage.getItem(authKey);
+  const authToken = getFromLocalStorage(authKey);
   if (authToken) {
     return !!authToken;
   }
