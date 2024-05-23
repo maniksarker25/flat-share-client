@@ -1,11 +1,16 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import FlatCard from "./FlatCard";
 import { TFlat } from "@/types/flat";
+import Link from "next/link";
 
 const FlatList = async () => {
-  const res = await fetch("http://localhost:3500/api/flats");
+  const res = await fetch("http://localhost:3500/api/flats", {
+    next: {
+      revalidate: 30,
+    },
+  });
   const { data: flats } = await res.json();
-  console.log(flats);
+
   return (
     <Container sx={{ mt: "100px" }}>
       <Box>
@@ -32,6 +37,11 @@ const FlatList = async () => {
             </Grid>
           ))}
         </Grid>
+        <Box sx={{ display: "flex", justifyContent: "center", mt: "50px" }}>
+          <Button component={Link} href="/all-flats" variant="outlined">
+            See All
+          </Button>
+        </Box>
       </Box>
     </Container>
   );

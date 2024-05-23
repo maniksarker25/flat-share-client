@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { TFlat } from "@/types/flat";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function FlatCard({ flat }: { flat: TFlat }) {
   return (
@@ -30,7 +31,12 @@ export default function FlatCard({ flat }: { flat: TFlat }) {
         </Typography>
       </CardContent>
       <CardActions sx={{ display: "flex", justifyContent: "end" }}>
-        <Button size="small" variant="outlined">
+        <Button
+          component={Link}
+          href={`/all-flats/${flat?.id}`}
+          size="small"
+          variant="outlined"
+        >
           See Details
         </Button>
       </CardActions>
