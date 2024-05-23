@@ -9,4 +9,25 @@ export type TSideBarItem = {
   child?: TSideBarItem[];
 };
 
+export type TMeta = {
+  page: number;
+  limit: number;
+  total: number;
+};
 
+export type TResponseSuccess = {
+  data: any;
+  meta: TMeta;
+  // statusCode: number;
+};
+
+export type IGenericErrorResponse = {
+  statusCode: number;
+  message: string;
+  errorMessages: IGenericErrorMessage[];
+};
+
+export type IGenericErrorMessage = {
+  path: string | number;
+  message: string;
+};
