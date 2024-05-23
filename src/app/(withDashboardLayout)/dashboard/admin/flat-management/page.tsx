@@ -1,7 +1,18 @@
+"use client";
+import { useGetAllFlatsQuery } from "@/redux/api/flatApi";
+import { Typography } from "@mui/material";
+import FlatTable from "./components/FlatTable";
+
 const FlatManagementPage = () => {
+  const { data, isLoading } = useGetAllFlatsQuery({});
+
   return (
     <div>
-      <h1>Flat management</h1>
+      {!isLoading ? (
+        <FlatTable flats={data} />
+      ) : (
+        <Typography>Loading....</Typography>
+      )}
     </div>
   );
 };
