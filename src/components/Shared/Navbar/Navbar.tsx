@@ -15,11 +15,16 @@ import { Container } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
 import navLogo from "@/assets/images/logo/house-share-logo-icon-design-vector-22925067-removebg-preview.png";
+import { getUserInfo } from "@/services/authServices";
+import { authKey } from "@/constants/auth";
+import { useRouter } from "next/navigation";
+
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const router = useRouter();
 
   const handleMenu = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -27,6 +32,12 @@ const Navbar = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const userInfo = getUserInfo();
+  const handleLogout = () => {
+    localStorage.removeItem(authKey);
+    router.refresh();
   };
 
   return (
@@ -76,6 +87,17 @@ const Navbar = () => {
                 <MenuItem href={"/"}>Home</MenuItem>
                 <MenuItem href={"/"}>About Us</MenuItem>
                 <MenuItem href={"/"}>My Profile</MenuItem>
+                <Box>
+                  {userInfo?.email ? (
+                    <Button color="error" onClick={handleLogout}>
+                      Logout
+                    </Button>
+                  ) : (
+                    <Button component={Link} href="/login">
+                      Login
+                    </Button>
+                  )}
+                </Box>
               </Menu>
             </Box>
           ) : (
@@ -93,9 +115,17 @@ const Navbar = () => {
               <Link href={"/"} color="inherit">
                 My Profile
               </Link>
-              <Button component={Link} href="/login" sx={{ ml: "30px" }}>
-                Login
-              </Button>
+              <Box>
+                {userInfo?.email ? (
+                  <Button color="error" onClick={handleLogout}>
+                    Logout
+                  </Button>
+                ) : (
+                  <Button component={Link} href="/login">
+                    Login
+                  </Button>
+                )}
+              </Box>
             </Box>
           )}
         </Toolbar>

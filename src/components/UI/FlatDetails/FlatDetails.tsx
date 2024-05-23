@@ -5,8 +5,8 @@ import Image from "next/image";
 const FlatDetails = ({ flat }: { flat: TFlat }) => {
   return (
     <Container sx={{ mt: "40px" }}>
-      <Stack direction="row" spacing={2}>
-        <Box sx={{ width: "65%", height: 440, position: "relative" }}>
+      <Stack direction={{ md: "row" }} spacing={2}>
+        <Box sx={{ width: { md: "65%" }, height: 440, position: "relative" }}>
           <Image
             src={flat?.photos[0]}
             layout="fill"
@@ -16,7 +16,7 @@ const FlatDetails = ({ flat }: { flat: TFlat }) => {
         </Box>
         <Box
           sx={{
-            width: "35%",
+            width: { md: "35%" },
             display: "flex",
             flexDirection: "column",
             gap: 1,
@@ -62,7 +62,7 @@ const FlatDetails = ({ flat }: { flat: TFlat }) => {
         <Typography my={"3px"}>
           <span style={{ fontWeight: "bold" }}>Location</span>: {flat?.location}
         </Typography>
-        <Stack direction={"row"} justifyContent={"space-between"}>
+        <Stack direction={{ md: "row" }} justifyContent={"space-between"}>
           <Box>
             <Typography my={"3px"}>
               <span style={{ fontWeight: "bold" }}>Rent Amount</span>:{" "}
@@ -89,6 +89,7 @@ const FlatDetails = ({ flat }: { flat: TFlat }) => {
               maxHeight: "350px",
               display: "flex",
               justifyContent: "center",
+              mt: { xs: "20px", md: "0px" },
             }}
           >
             <Button>Send Share Request</Button>
