@@ -1,6 +1,4 @@
-import React from "react";
-
-const FlatManageMentPage = () => {
+const FlatManagementPage = () => {
   return (
     <div>
       <h1>Flat management</h1>
@@ -8,4 +6,4 @@ const FlatManageMentPage = () => {
   );
 };
 
-export default FlatManageMentPage;
+export default FlatManagementPage;

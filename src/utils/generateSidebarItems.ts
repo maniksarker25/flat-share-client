@@ -4,15 +4,12 @@ import MedicalInformationIcon from "@mui/icons-material/MedicalInformation";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import TryIcon from "@mui/icons-material/Try";
-import BookOnlineIcon from "@mui/icons-material/BookOnline";
-import MedicationIcon from "@mui/icons-material/Medication";
-import PaymentIcon from "@mui/icons-material/Payment";
+
 import KeyIcon from "@mui/icons-material/Key";
 import { TSideBarItem, TUserRole } from "@/types";
 import { USER_ROLE } from "@/constants/role";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 export const generateSideBarItems = (role: TUserRole): TSideBarItem[] => {
-  console.log(role);
   const menuItems: TSideBarItem[] = [];
 
   const defaultMenus = [

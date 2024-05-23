@@ -19,8 +19,11 @@ import { getUserInfo, isLoggedIn } from "@/services/authServices";
 import { authKey } from "@/constants/auth";
 import { useRouter } from "next/navigation";
 import { logoutUser } from "@/services/actions/logoutUser";
+import { useGetAllUserQuery } from "@/redux/api/userApi";
 
 const Navbar = () => {
+  const { data } = useGetAllUserQuery({});
+  console.log(data);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();
