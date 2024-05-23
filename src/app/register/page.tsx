@@ -1,6 +1,7 @@
 "use client";
 import FSForm from "@/components/Forms/FSForm";
 import FSInput from "@/components/Forms/FSInput";
+import { registerUser } from "@/services/actions/registerUser";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -10,7 +11,15 @@ const RegisterPage = () => {
   const [error, setError] = useState("");
 
   const handleRegister = async (values: FieldValues) => {
+    console.log(values);
     if (values?.password === values?.confirmPassword) {
+      const registerValues = {
+        username: values?.username,
+        email: values?.email,
+        password: values?.password,
+      };
+      const res = await registerUser(registerValues);
+      console.log(res);
     } else {
       setError("Password and confirm password do not match");
     }
@@ -95,7 +104,7 @@ const RegisterPage = () => {
                 }}
                 type="submit"
               >
-                Login
+                Register
               </Button>
               <Typography component="p" fontWeight={300}>
                 Already have an account?

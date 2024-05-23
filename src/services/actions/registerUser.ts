@@ -1,3 +1,4 @@
+"use server";
 import { FieldValues } from "react-hook-form";
 
 export const registerUser = async (values: FieldValues) => {
