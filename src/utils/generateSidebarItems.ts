@@ -44,34 +44,19 @@ export const generateSideBarItems = (role: TUserRole): TSideBarItem[] => {
     case USER_ROLE.USER:
       menuItems.push(
         {
-          title: "Dashboard",
-          path: `${role}`,
+          title: "Post Flat Info",
+          path: `${role}/post-flat-info`,
           icon: DashboardIcon,
         },
         {
-          title: "Specialties",
-          path: `${role}/specialties`,
+          title: "My Flat Posts",
+          path: `${role}/my-flat-posts`,
           icon: TryIcon,
         },
         {
-          title: "Doctors",
-          path: `${role}/doctors`,
+          title: "My Requests",
+          path: `${role}/my-requests`,
           icon: MedicalInformationIcon,
-        },
-        {
-          title: "Schedules",
-          path: `${role}/schedules`,
-          icon: CalendarMonthIcon,
-        },
-        {
-          title: "Appointments",
-          path: `${role}/appointments`,
-          icon: CalendarMonthIcon,
-        },
-        {
-          title: "Reviews",
-          path: `${role}/reviews`,
-          icon: ReviewsIcon,
         }
       );
       break;
