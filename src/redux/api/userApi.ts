@@ -31,6 +31,13 @@ const userApi = baseApi.injectEndpoints({
       },
       invalidatesTags: [tagTypes.users],
     }),
+    getMyProfile: build.query({
+      query: () => ({
+        url: "/user/profile",
+        method: "GET",
+      }),
+      providesTags: [tagTypes.users],
+    }),
   }),
 });
 
@@ -38,4 +45,5 @@ export const {
   useGetAllUserQuery,
   useChangeStatusMutation,
   useChangeUserRoleMutation,
+  useGetMyProfileQuery,
 } = userApi;
