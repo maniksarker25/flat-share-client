@@ -88,8 +88,10 @@ const Navbar = () => {
                 }}
               >
                 <MenuItem href={"/"}>Home</MenuItem>
-                <MenuItem href={"/"}>About Us</MenuItem>
-                {isLoggedIn() && <MenuItem href={"/"}>My Profile</MenuItem>}
+                <MenuItem href={"/about-us"}>About Us</MenuItem>
+                {isLoggedIn() && (
+                  <MenuItem href={"/dashboard/profile"}>My Profile</MenuItem>
+                )}
                 <Box>
                   {userInfo?.email ? (
                     <Button color="error" onClick={handleLogout}>
@@ -116,7 +118,7 @@ const Navbar = () => {
                 About Us
               </Link>
               {isLoggedIn() && (
-                <Link href={"/"} color="inherit">
+                <Link href={"/dashboard/profile"} color="inherit">
                   My Profile
                 </Link>
               )}
