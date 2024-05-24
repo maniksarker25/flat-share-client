@@ -27,8 +27,8 @@ const AboutPage = () => {
         >
           <Typography variant="body1" component="p" paragraph>
             At FlatShare, we believe in making living together as easy and
-            enjoyable as possible. Whether you're looking for a new place to
-            live or someone to share your flat with, we're here to help. Our
+            enjoyable as possible. Whether you are looking for a new place to
+            live or someone to share your flat with, we are here to help. Our
             platform connects you with like-minded individuals to create a
             harmonious living environment.
           </Typography>
