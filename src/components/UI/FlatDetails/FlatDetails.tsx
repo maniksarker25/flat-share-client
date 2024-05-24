@@ -1,6 +1,7 @@
 import { TFlat } from "@/types/flat";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 
 const FlatDetails = ({ flat }: { flat: TFlat }) => {
   return (
@@ -92,7 +93,12 @@ const FlatDetails = ({ flat }: { flat: TFlat }) => {
               mt: { xs: "20px", md: "0px" },
             }}
           >
-            <Button>Send Share Request</Button>
+            <Button
+              component={Link}
+              href={`/dashboard/user/flat-share-request/${flat.id}`}
+            >
+              Send Share Request
+            </Button>
           </Box>
         </Stack>
       </Box>
