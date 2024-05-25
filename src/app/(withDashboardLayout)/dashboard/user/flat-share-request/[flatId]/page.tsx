@@ -1,7 +1,10 @@
 "use client";
 import FSForm from "@/components/Forms/FSForm";
 import FSInput from "@/components/Forms/FSInput";
+import { useCreateBookingRequestMutation } from "@/redux/api/bookingApi";
+import { bookingRequestValidationSchema } from "@/schemas/bookingRequest";
 import { getUserInfo } from "@/services/authServices";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Box,
   Button,
@@ -12,18 +15,47 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { FieldValues } from "react-hook-form";
+import { toast } from "sonner";
+type TParams = {
+  flatId: string;
+};
 
-const FlatShareRequestPage = () => {
+const FlatShareRequestPage = ({ params }: { params: TParams }) => {
   const [error, setError] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-
+  const router = useRouter();
+  const [createBookingRequest] = useCreateBookingRequestMutation();
   const handleCheckboxChange = (event: any) => {
     setIsChecked(event.target.checked);
   };
+  const flatId = params?.flatId;
   const userInfo = getUserInfo();
 
-  const handleBookingRequest = () => {};
+  const handleBookingRequest = async (values: FieldValues) => {
+    setError("");
+    if (isChecked) {
+      try {
+        const bookingRequestValues = {
+          flatId,
+          name: values?.name,
+          profession: values?.profession,
+          email: userInfo?.email,
+        };
+        const res = await createBookingRequest(bookingRequestValues);
+        if (res?.data?.id) {
+          toast.success("Booking request send successfully");
+          router.push("/dashboard/user/my-requests");
+        }
+      } catch (error) {
+        toast.error("Something went wrong");
+      }
+    } else {
+      setError("Please accept our terms and conditions");
+    }
+  };
   return (
     <Container>
       <Stack
@@ -57,7 +89,7 @@ const FlatShareRequestPage = () => {
           <Box textAlign={"center"}>
             <FSForm
               onSubmit={handleBookingRequest}
-              // defaultValues={defaultValues}
+              resolver={zodResolver(bookingRequestValidationSchema)}
             >
               <Grid container spacing={3} my={1}>
                 <Grid item xs={12}>
@@ -66,7 +98,7 @@ const FlatShareRequestPage = () => {
                     type="text"
                     size="small"
                     fullWidth={true}
-                    name="username"
+                    name="name"
                   />
                 </Grid>
                 <Grid item xs={12}>

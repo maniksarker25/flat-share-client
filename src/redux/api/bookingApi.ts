@@ -4,11 +4,15 @@ import { baseApi } from "./baseApi";
 const bookingApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     createBookingRequest: build.mutation({
-      query: () => ({
-        url: "/booking-request",
-        method: "POST",
-      }),
-      invalidatesTags: [tagTypes.bookingRequests],
+      query: (data) => {
+        console.log(data);
+        return {
+          url: "/booking-request",
+          method: "POST",
+          data,
+        };
+      },
+      //   invalidatesTags: [tagTypes.bookingRequests],
     }),
   }),
 });
