@@ -18,7 +18,18 @@ const flatApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.flats],
     }),
+    getMyFlats: build.query({
+      query: () => ({
+        url: "/flat/my-flats",
+        method: "GET",
+      }),
+      providesTags: [tagTypes.flats],
+    }),
   }),
 });
 
-export const { useGetAllFlatsQuery, useDeleteFlatMutation } = flatApi;
+export const {
+  useGetAllFlatsQuery,
+  useDeleteFlatMutation,
+  useGetMyFlatsQuery,
+} = flatApi;
