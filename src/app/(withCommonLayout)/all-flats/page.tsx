@@ -4,7 +4,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 
 const AllFlatPage = async () => {
-  const res = await fetch("http://localhost:3500/api/flats", {
+  const res = await fetch("http://localhost:3500/api/flat", {
     next: {
       revalidate: 30,
     },

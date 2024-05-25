@@ -9,6 +9,7 @@ type TInputProps = {
   fullWidth?: boolean;
   sx?: SxProps;
   required?: boolean;
+  value?: string | number | boolean;
 };
 
 const FSInput = ({
@@ -19,6 +20,7 @@ const FSInput = ({
   fullWidth,
   sx,
   required,
+  value,
 }: TInputProps) => {
   const { control } = useFormContext();
   return (
@@ -36,6 +38,7 @@ const FSInput = ({
           fullWidth={fullWidth}
           error={!!error?.message}
           helperText={error?.message}
+          value={value}
         />
       )}
     />
