@@ -1,12 +1,37 @@
 "use client";
 import FSForm from "@/components/Forms/FSForm";
 import FSInput from "@/components/Forms/FSInput";
+import { useChangePasswordMutation } from "@/redux/api/userApi";
+import { changePasswordValidationSchema } from "@/schemas/password";
+import { logoutUser } from "@/services/actions/logoutUser";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { FieldValues } from "react-hook-form";
+import { toast } from "sonner";
 
 const ChangePasswordPage = () => {
   const [error, setError] = useState("");
-  const handleChangePassword = async () => {};
+  const [changePassword] = useChangePasswordMutation();
+  const router = useRouter();
+  const handleChangePassword = async (values: FieldValues) => {
+    if (values.newPassword === values.retypeNewPassword) {
+      try {
+        const res = await changePassword(values).unwrap();
+        if (res === null) {
+          logoutUser(router);
+          toast.success("Password Changed Successfully");
+        } else {
+          toast.error("Incorrect Current Password");
+        }
+      } catch (error) {
+        toast.error("Something went wrong");
+      }
+    } else {
+      setError("New password and retype new password is not matched");
+    }
+  };
   return (
     <Container>
       <Stack
@@ -40,13 +65,13 @@ const ChangePasswordPage = () => {
           <Box textAlign={"center"}>
             <FSForm
               onSubmit={handleChangePassword}
-              // resolver={zodResolver(registerValidationSchema)}
+              resolver={zodResolver(changePasswordValidationSchema)}
             >
               <Grid container spacing={3} my={1}>
                 <Grid item xs={12}>
                   <FSInput
                     label="Current Password"
-                    type="text"
+                    type="password"
                     size="small"
                     fullWidth={true}
                     name="currentPassword"
