@@ -12,9 +12,17 @@ const bookingApi = baseApi.injectEndpoints({
           data,
         };
       },
-      //   invalidatesTags: [tagTypes.bookingRequests],
+      invalidatesTags: [tagTypes.bookingRequests],
+    }),
+    getMyBookingRequests: build.query({
+      query: () => ({
+        url: "/booking-request/my-booking-requests",
+        method: "GET",
+      }),
+      providesTags: [tagTypes.bookingRequests],
     }),
   }),
 });
 
-export const { useCreateBookingRequestMutation } = bookingApi;
+export const { useCreateBookingRequestMutation, useGetMyBookingRequestsQuery } =
+  bookingApi;
