@@ -1,6 +1,7 @@
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import banner from "@/assets/images/banner/grown-up-flat-share-1582411119__1_-removebg-preview.png";
+import Link from "next/link";
 const HeroSection = () => {
   return (
     <Container>
@@ -32,8 +33,12 @@ const HeroSection = () => {
               gap: "10px",
             }}
           >
-            <Button>Share Your Flat</Button>
-            <Button variant="outlined">About Us</Button>
+            <Button component={Link} href="/dashboard/user/post-flat-info">
+              Share Your Flat
+            </Button>
+            <Button variant="outlined" component={Link} href="/about-us">
+              About Us
+            </Button>
           </Box>
         </Box>
         <Box width={"100%"}>
