@@ -3,6 +3,14 @@ import { baseApi } from "./baseApi";
 
 const flatApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
+    createFlat: build.mutation({
+      query: (data) => ({
+        url: "/flat",
+        method: "POST",
+        data,
+      }),
+      invalidatesTags: [tagTypes.flats],
+    }),
     getAllFlats: build.query({
       query: (arg: Record<string, any>) => ({
         url: "/flat",
@@ -29,6 +37,7 @@ const flatApi = baseApi.injectEndpoints({
 });
 
 export const {
+  useCreateFlatMutation,
   useGetAllFlatsQuery,
   useDeleteFlatMutation,
   useGetMyFlatsQuery,

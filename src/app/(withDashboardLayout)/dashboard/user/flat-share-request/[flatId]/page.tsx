@@ -140,7 +140,7 @@ const FlatShareRequestPage = ({ params }: { params: TParams }) => {
                 }}
                 type="submit"
               >
-                Register
+                Submit
               </Button>
             </FSForm>
           </Box>
