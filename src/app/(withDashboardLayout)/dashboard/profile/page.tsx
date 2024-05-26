@@ -1,12 +1,12 @@
 "use client";
-import { useGetMyProfileQuery } from "@/redux/api/userApi";
+// import { useGetMyProfileQuery } from "@/redux/api/userApi";
 import { Box, Typography } from "@mui/material";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import EditProfileModal from "./components/EditProfileModal";
 import { useState } from "react";
 const ProfilePage = () => {
   const [open, setOpen] = useState(false);
-  const { data } = useGetMyProfileQuery({});
+  // const { data } = useGetMyProfileQuery({});
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box
@@ -80,7 +80,7 @@ const ProfilePage = () => {
               sx={{ cursor: "pointer" }}
             />
           </Box>
-          <Box
+          {/* <Box
             sx={{
               textAlign: "center",
               mt: "35px",
@@ -90,9 +90,9 @@ const ProfilePage = () => {
               Username: {data?.username}
             </Typography>
             <Typography>Email: {data?.email}</Typography>
-          </Box>
+          </Box> */}
         </Box>
-        <Box
+        {/* <Box
           sx={{
             mt: "15px",
           }}
@@ -129,9 +129,9 @@ const ProfilePage = () => {
               textAlign: "center",
             }}
           ></Box>
-        </Box>
+        </Box> */}
       </Box>
-      <EditProfileModal open={open} setOpen={setOpen} profileData={data} />
+      {/* <EditProfileModal open={open} setOpen={setOpen} profileData={data} /> */}
     </Box>
   );
 };
