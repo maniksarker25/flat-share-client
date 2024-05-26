@@ -38,7 +38,7 @@ const FSInput = ({
           fullWidth={fullWidth}
           error={!!error?.message}
           helperText={error?.message}
-          value={value}
+          // value={value}
         />
       )}
     />

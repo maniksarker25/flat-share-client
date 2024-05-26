@@ -44,6 +44,15 @@ const userApi = baseApi.injectEndpoints({
         method: "POST",
         data,
       }),
+      invalidatesTags: [tagTypes.users],
+    }),
+    updateProfile: build.mutation({
+      query: (data) => ({
+        url: "/user/update-profile",
+        method: "PATCH",
+        data,
+      }),
+      invalidatesTags: [tagTypes.users],
     }),
   }),
 });
@@ -54,4 +63,5 @@ export const {
   useChangeUserRoleMutation,
   useGetMyProfileQuery,
   useChangePasswordMutation,
+  useUpdateProfileMutation,
 } = userApi;

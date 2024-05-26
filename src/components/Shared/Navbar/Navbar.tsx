@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import AppBar from "@mui/material/AppBar";
+
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -16,14 +15,14 @@ import Link from "next/link";
 import Image from "next/image";
 import navLogo from "@/assets/images/logo/house-share-logo-icon-design-vector-22925067-removebg-preview.png";
 import { getUserInfo, isLoggedIn } from "@/services/authServices";
-import { authKey } from "@/constants/auth";
 import { useRouter } from "next/navigation";
 import { logoutUser } from "@/services/actions/logoutUser";
 import { useGetAllUserQuery } from "@/redux/api/userApi";
+import { useState } from "react";
 
 const Navbar = () => {
   const { data } = useGetAllUserQuery({});
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));

@@ -26,13 +26,9 @@ const FlatList = async () => {
         <Typography textAlign={"center"}>
           Explore our top flat listings and find your ideal living space today
         </Typography>
-        <Grid
-          container
-          spacing={4}
-          sx={{ justifyContent: "space-between", mt: "20px" }}
-        >
+        <Grid container spacing={4} sx={{ mt: "20px" }}>
           {flats?.slice(0, 3)?.map((flat: TFlat, index: number) => (
-            <Grid item md={4} key={index}>
+            <Grid item sm={6} md={4} key={index}>
               <FlatCard key={index} flat={flat} />
             </Grid>
           ))}

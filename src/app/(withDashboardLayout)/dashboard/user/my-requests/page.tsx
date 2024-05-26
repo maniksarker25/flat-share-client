@@ -1,7 +1,7 @@
 "use client";
 import { useGetMyBookingRequestsQuery } from "@/redux/api/bookingApi";
 import { Box, Typography } from "@mui/material";
-import React from "react";
+
 import MyBookingRequestTable from "./components/MyBookingRequestTable";
 
 const MyRequestsPage = () => {

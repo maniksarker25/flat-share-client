@@ -1,6 +1,5 @@
 "use client";
 import { useGetMyFlatsQuery } from "@/redux/api/flatApi";
-import React from "react";
 import MyFlatPostTable from "./components/MyFlatPostTable";
 import { Typography } from "@mui/material";
 
