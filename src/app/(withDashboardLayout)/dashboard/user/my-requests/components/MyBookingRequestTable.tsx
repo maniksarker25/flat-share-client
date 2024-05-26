@@ -53,7 +53,11 @@ const MyBookingRequestTable = ({
   ];
   return (
     <div style={{ height: 700, width: "100%" }}>
-      <DataGrid rows={updatedBookingRequests} columns={columns} />
+      <DataGrid
+        rows={updatedBookingRequests}
+        columns={columns}
+        hideFooterPagination
+      />
     </div>
   );
 };

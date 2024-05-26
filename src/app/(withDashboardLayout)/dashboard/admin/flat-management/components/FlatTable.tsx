@@ -6,6 +6,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import Link from "next/link";
 import { useDeleteFlatMutation } from "@/redux/api/flatApi";
 import { toast } from "sonner";
+import Image from "next/image";
 const FlatTable = ({ flats }: { flats: TFlat[] }) => {
   const [deleteFlat] = useDeleteFlatMutation();
   const handleDeleteFlat = async (id: string) => {
@@ -22,6 +23,23 @@ const FlatTable = ({ flats }: { flats: TFlat[] }) => {
     }
   };
   const columns: GridColDef[] = [
+    {
+      field: "photos",
+      headerName: "Photo",
+      flex: 1,
+
+      renderCell: ({ row }) => {
+        return (
+          <Box
+            sx={{
+              mt: "8px",
+            }}
+          >
+            <Image src={row?.photos[0]} alt="icon" width={30} height={30} />
+          </Box>
+        );
+      },
+    },
     { field: "squareFeet", headerName: "SquareFeet", flex: 1 },
     { field: "totalBedrooms", headerName: "Number Of Bedrooms", flex: 1 },
     { field: "location", headerName: "Location", flex: 1 },
@@ -53,7 +71,7 @@ const FlatTable = ({ flats }: { flats: TFlat[] }) => {
   ];
   return (
     <div style={{ height: 700, width: "100%" }}>
-      <DataGrid rows={flats} columns={columns} />
+      <DataGrid rows={flats} columns={columns} hideFooterPagination />
     </div>
   );
 };

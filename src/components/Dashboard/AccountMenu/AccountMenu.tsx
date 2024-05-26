@@ -10,6 +10,8 @@ import Tooltip from "@mui/material/Tooltip";
 import Logout from "@mui/icons-material/Logout";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useRouter } from "next/navigation";
+import { logoutUser } from "@/services/actions/logoutUser";
+import Link from "next/link";
 
 const menuStyles = {
   paper: {
@@ -51,8 +53,7 @@ export default function AccountMenu() {
   };
   const handleLogout = () => {
     setAnchorEl(null);
-    localStorage.removeItem("accessToken");
-    router.push("/login");
+    logoutUser(router);
   };
 
   return (
@@ -99,7 +100,11 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar sx={{ background: "transparent", color: "primary.main" }} />
+          <Avatar
+            component={Link}
+            href={"/dashboard/profile"}
+            sx={{ background: "transparent", color: "primary.main" }}
+          />
           Profile
         </MenuItem>
 

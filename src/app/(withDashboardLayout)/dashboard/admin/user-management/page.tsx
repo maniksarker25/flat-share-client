@@ -5,9 +5,10 @@ import { Typography } from "@mui/material";
 
 const UserManagementPage = () => {
   const { data, isLoading } = useGetAllUserQuery({});
+  // console.log(data);
   return (
     <div>
-      {!isLoading ? (
+      {!isLoading && data?.length ? (
         <UserTable users={data} />
       ) : (
         <Typography>Loading....</Typography>

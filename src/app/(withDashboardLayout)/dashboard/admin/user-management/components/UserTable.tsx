@@ -101,7 +101,7 @@ const UserTable = ({ users }: { users: any }) => {
   ];
   return (
     <div style={{ height: 700, width: "100%" }}>
-      <DataGrid rows={users} columns={columns} />
+      <DataGrid rows={users} columns={columns} hideFooterPagination />
     </div>
   );
 };
