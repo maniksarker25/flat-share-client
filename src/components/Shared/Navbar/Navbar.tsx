@@ -19,7 +19,10 @@ import { useRouter } from "next/navigation";
 import { logoutUser } from "@/services/actions/logoutUser";
 import { useGetAllUserQuery } from "@/redux/api/userApi";
 import { useState } from "react";
-
+import dynamic from "next/dynamic";
+// const AuthButton = dynamic(() => import("@/components/Shared/Navbar/Navbar"), {
+//   ssr: false,
+// });
 const Navbar = () => {
   const { data } = useGetAllUserQuery({});
   const [anchorEl, setAnchorEl] = useState(null);
@@ -101,6 +104,7 @@ const Navbar = () => {
                     </Button>
                   )}
                 </Box>
+                {/* <AuthButton /> */}
               </Menu>
             </Box>
           ) : (

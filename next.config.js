@@ -10,6 +10,7 @@ const nextConfig = {
         hostname: "**",
       },
     ],
+    domains: ["https://flat-share-client-three.vercel.app"],
   },
 };
 
