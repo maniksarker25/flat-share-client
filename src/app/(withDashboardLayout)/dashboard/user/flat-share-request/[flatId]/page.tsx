@@ -90,6 +90,7 @@ const FlatShareRequestPage = ({ params }: { params: TParams }) => {
             <FSForm
               onSubmit={handleBookingRequest}
               resolver={zodResolver(bookingRequestValidationSchema)}
+              defaultValues={{ email: userInfo?.email }}
             >
               <Grid container spacing={3} my={1}>
                 <Grid item xs={12}>
@@ -115,7 +116,6 @@ const FlatShareRequestPage = ({ params }: { params: TParams }) => {
                     type="email"
                     name="email"
                     fullWidth={true}
-                    value={userInfo?.email}
                   />
                 </Grid>
 
