@@ -23,7 +23,6 @@ import { useGetAllUserQuery } from "@/redux/api/userApi";
 
 const Navbar = () => {
   const { data } = useGetAllUserQuery({});
-  console.log(data);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();

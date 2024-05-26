@@ -1,15 +1,20 @@
 "use client";
 import FSForm from "@/components/Forms/FSForm";
 import FSInput from "@/components/Forms/FSInput";
+import { useGetAllFlatsQuery } from "@/redux/api/flatApi";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
+import { useState } from "react";
 import { FieldValues } from "react-hook-form";
 
 const SearchBar = () => {
+  const [params, setParams] = useState({});
+  const { data, isLoading } = useGetAllFlatsQuery({ ...params });
+  console.log(data);
   const handleSearchFlat = async (values: FieldValues) => {
     values.totalBedrooms = Number(values.totalBedrooms);
     values.minPrice = Number(values.minPrice);
     values.maxPrice = Number(values.maxPrice);
-    console.log(values);
+    setParams(values);
   };
   return (
     <Container
