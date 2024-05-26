@@ -41,11 +41,11 @@ const FlatTable = ({ flats }: { flats: TFlat[] }) => {
             >
               <DeleteIcon sx={{ color: "red" }} />
             </IconButton>
-            <Link href={`/dashboard/admin/doctors/edit/${row.id}`}>
+            {/* <Link href={`/dashboard/admin/doctors/edit/${row.id}`}>
               <IconButton aria-label="delete">
                 <EditIcon />
               </IconButton>
-            </Link>
+            </Link> */}
           </Box>
         );
       },
