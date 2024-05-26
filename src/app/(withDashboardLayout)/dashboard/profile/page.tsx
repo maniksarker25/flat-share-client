@@ -14,7 +14,8 @@ const ProfilePage = () => {
           padding: "20px",
           borderRadius: "10px",
           backgroundColor: "#fff",
-          minWidth: "500px",
+          width: "100%",
+          maxWidth: { md: "500px" },
           border: "1px solid gray",
         }}
       >
