@@ -2,9 +2,9 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import GroupIcon from "@mui/icons-material/Group";
 import MedicalInformationIcon from "@mui/icons-material/MedicalInformation";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import ReviewsIcon from "@mui/icons-material/Reviews";
+import AddIcon from "@mui/icons-material/Add";
 import TryIcon from "@mui/icons-material/Try";
-
+import PersonIcon from "@mui/icons-material/Person";
 import KeyIcon from "@mui/icons-material/Key";
 import { TSideBarItem, TUserRole } from "@/types";
 import { USER_ROLE } from "@/constants/role";
@@ -16,7 +16,7 @@ export const generateSideBarItems = (role: TUserRole): TSideBarItem[] => {
     {
       title: "Profile",
       path: `profile`,
-      icon: CalendarMonthIcon,
+      icon: PersonIcon,
     },
     {
       title: "Change Password",
@@ -46,7 +46,7 @@ export const generateSideBarItems = (role: TUserRole): TSideBarItem[] => {
         {
           title: "Post Flat Info",
           path: `${role}/post-flat-info`,
-          icon: DashboardIcon,
+          icon: AddIcon,
         },
         {
           title: "My Flat Posts",
