@@ -23,8 +23,6 @@ export function middleware(request: NextRequest) {
     decodedData = jwtDecode(accessToken) as any;
   }
   const role: TUserRole = decodedData?.role?.toLowerCase();
-  console.log("accessToken====================", accessToken);
-  console.log("role=======================", role);
 
   // check conditions
   if (!accessToken) {
