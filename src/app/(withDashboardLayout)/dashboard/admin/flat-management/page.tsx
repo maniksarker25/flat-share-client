@@ -4,9 +4,8 @@ import { Typography } from "@mui/material";
 import FlatTable from "./components/FlatTable";
 
 const FlatManagementPage = () => {
-  const { data } = useGetAllFlatsQuery({});
-  const isLoading = false;
-  console.log(data);
+  const { data, isLoading } = useGetAllFlatsQuery({});
+
   return (
     <div>
       {!isLoading && data?.length > 0 ? (

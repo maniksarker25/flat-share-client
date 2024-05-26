@@ -2,8 +2,6 @@ import { TFlat } from "@/types/flat";
 import { Box, IconButton } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import Link from "next/link";
 import { useDeleteFlatMutation } from "@/redux/api/flatApi";
 import { toast } from "sonner";
 import Image from "next/image";

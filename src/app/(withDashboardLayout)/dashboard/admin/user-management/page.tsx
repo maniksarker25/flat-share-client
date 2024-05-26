@@ -8,7 +8,7 @@ const UserManagementPage = () => {
   // console.log(data);
   return (
     <div>
-      {!isLoading && data?.length ? (
+      {!isLoading && data?.length > 0 ? (
         <UserTable users={data} />
       ) : (
         <Typography>Loading....</Typography>
