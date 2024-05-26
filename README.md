@@ -1,5 +1,5 @@
 - # Flat Share Application
-- Make a flat share application with typescript,express,prisma,postgresql etc.
+- Make a flat share application with Typescript,NextJS,Redux,Material UI etc.
 
 - ## Host Link
 - Hosted in Vercel => https://flat-share-server-six.vercel.app/
