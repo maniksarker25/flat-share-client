@@ -131,7 +131,7 @@ const ProfilePage = () => {
           ></Box>
         </Box>
       </Box>
-      {/* <EditProfileModal open={open} setOpen={setOpen} profileData={data} /> */}
+      <EditProfileModal open={open} setOpen={setOpen} profileData={data} />
     </Box>
   );
 };
