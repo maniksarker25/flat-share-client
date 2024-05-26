@@ -4,6 +4,8 @@ import FSInput from "@/components/Forms/FSInput";
 import { authKey } from "@/constants/auth";
 import { loginValidationSchema } from "@/schemas/login";
 import { loginUser } from "@/services/actions/loginUser";
+import setAccessTokenToCookies from "@/services/actions/setAccessTokenToCookie";
+import { storeUserInfo } from "@/services/authServices";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
@@ -21,8 +23,12 @@ const LoginPage = () => {
     try {
       const res = await loginUser(values);
       if (res?.success) {
+        storeUserInfo(res?.data?.token);
+        setAccessTokenToCookies(res?.data?.token, {
+          redirect: "/",
+        });
         toast.success("User login successfully");
-        localStorage.setItem(authKey, res?.data?.token);
+
         router.push("/");
       } else {
         setError(res?.message);

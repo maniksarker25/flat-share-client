@@ -1,5 +1,7 @@
 "use server";
 import { FieldValues } from "react-hook-form";
+import setAccessTokenToCookies from "./setAccessTokenToCookie";
+import { authKey } from "@/constants/auth";
 
 export const loginUser = async (values: FieldValues) => {
   const res = await fetch(
@@ -8,9 +10,15 @@ export const loginUser = async (values: FieldValues) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
-      cache: "no-cache",
+      // cache: "no-cache",
+      credentials: "include",
     }
   );
   const userInfo = await res.json();
+  // if (userInfo?.data?.token) {
+  //   setAccessTokenToCookies(userInfo?.data?.token, {
+  //     redirect: "/",
+  //   });
+  // }
   return userInfo;
 };
