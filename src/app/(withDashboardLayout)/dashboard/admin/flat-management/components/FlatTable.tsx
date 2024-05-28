@@ -28,7 +28,7 @@ const FlatTable = ({
     try {
       const res = await deleteFlat(id).unwrap();
 
-      if (res?.id) {
+      if (res?.success) {
         toast.success("Flat deleted successfully");
       } else {
         toast.error(res.message);

@@ -44,8 +44,8 @@ export default function EditProfileModal({
   };
   const handleUpdateProfile = async (values: FieldValues) => {
     try {
-      const res = await updateProfile(values);
-      if (res?.data?.id) {
+      const res = await updateProfile(values).unwrap();
+      if (res?.success) {
         toast.success("Profile updated successfully");
         logoutUser(router);
       } else {
