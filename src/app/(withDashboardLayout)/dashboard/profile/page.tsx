@@ -7,6 +7,7 @@ import { useState } from "react";
 const ProfilePage = () => {
   const [open, setOpen] = useState(false);
   const { data } = useGetMyProfileQuery({});
+  const profileInfo = data?.data;
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box
@@ -87,9 +88,9 @@ const ProfilePage = () => {
             }}
           >
             <Typography fontSize={"20px"} fontWeight={600}>
-              Username: {data?.username}
+              Username: {profileInfo?.username}
             </Typography>
-            <Typography>Email: {data?.email}</Typography>
+            <Typography>Email: {profileInfo?.email}</Typography>
           </Box>
         </Box>
         <Box
@@ -108,7 +109,7 @@ const ProfilePage = () => {
             }}
           >
             <Typography fontWeight={600}>Status:</Typography>
-            <Typography>{data?.status}</Typography>
+            <Typography>{profileInfo?.status}</Typography>
           </Box>
           <Box
             sx={{
@@ -121,7 +122,7 @@ const ProfilePage = () => {
             }}
           >
             <Typography fontWeight={600}>Role:</Typography>
-            <Typography>{data?.role}</Typography>
+            <Typography>{profileInfo?.role}</Typography>
           </Box>
 
           <Box
@@ -131,7 +132,11 @@ const ProfilePage = () => {
           ></Box>
         </Box>
       </Box>
-      <EditProfileModal open={open} setOpen={setOpen} profileData={data} />
+      <EditProfileModal
+        open={open}
+        setOpen={setOpen}
+        profileData={profileInfo}
+      />
     </Box>
   );
 };

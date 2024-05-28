@@ -1,11 +1,28 @@
 import { TFlat } from "@/types/flat";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Pagination } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useDeleteFlatMutation } from "@/redux/api/flatApi";
 import { toast } from "sonner";
 import Image from "next/image";
-const FlatTable = ({ flats }: { flats: TFlat[] }) => {
+import { TMeta } from "@/types";
+const FlatTable = ({
+  flats,
+  meta,
+  page,
+  setPage,
+  limit,
+}: {
+  flats: TFlat[];
+  meta: TMeta;
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  limit: number;
+}) => {
+  let pageCount: number;
+  if (meta?.total) {
+    pageCount = Math.ceil(meta.total / limit);
+  }
   const [deleteFlat] = useDeleteFlatMutation();
   const handleDeleteFlat = async (id: string) => {
     try {
@@ -67,9 +84,37 @@ const FlatTable = ({ flats }: { flats: TFlat[] }) => {
       },
     },
   ];
+  // handle pagination change
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
   return (
-    <div style={{ height: 700, width: "100%" }}>
-      <DataGrid rows={flats} columns={columns} hideFooterPagination />
+    <div style={{ height: 500, width: "100%" }}>
+      <DataGrid
+        rows={flats}
+        columns={columns}
+        hideFooterPagination
+        slots={{
+          footer: () => {
+            return (
+              <Box
+                sx={{
+                  mb: 2,
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <Pagination
+                  color="primary"
+                  count={pageCount}
+                  page={page}
+                  onChange={handleChange}
+                />
+              </Box>
+            );
+          },
+        }}
+      />
     </div>
   );
 };

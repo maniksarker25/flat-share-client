@@ -12,13 +12,14 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/services/actions/loginUser";
 import { authKey } from "@/constants/auth";
+import setAccessTokenToCookies from "@/services/actions/setAccessTokenToCookie";
 
 const RegisterPage = () => {
   const [error, setError] = useState("");
   const router = useRouter();
 
   const handleRegister = async (values: FieldValues) => {
-    console.log(values);
+    // console.log(values);
     if (values?.password === values?.confirmPassword) {
       try {
         const registerValues = {
@@ -36,7 +37,9 @@ const RegisterPage = () => {
           if (result?.success) {
             toast.success("User login successfully");
             localStorage.setItem(authKey, result?.data?.token);
-            router.push("/");
+            setAccessTokenToCookies(res?.data?.token, {
+              redirect: "/",
+            });
           }
         } else {
           toast.error(res.message);

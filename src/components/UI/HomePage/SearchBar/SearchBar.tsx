@@ -139,7 +139,12 @@ const SearchBar = () => {
           </Box>
         </Box>
       </Box>
-      <FlatSearchResultModal open={open} setOpen={setOpen} flats={data} />
+      <FlatSearchResultModal
+        open={open}
+        setOpen={setOpen}
+        flats={data?.data}
+        isLoading={isLoading}
+      />
     </Container>
   );
 };

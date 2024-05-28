@@ -66,8 +66,8 @@ const PostFlatInfoPage = () => {
     values.advancedAmount = Number(values.advancedAmount);
     values.photos = images;
     try {
-      const res = await createFlat(values);
-      if (res?.data?.id) {
+      const res = await createFlat(values).unwrap();
+      if (res?.success) {
         toast.success("Flat post created successfully");
         router.push("/dashboard/user/my-flat-posts");
       } else {

@@ -24,15 +24,19 @@ export type TModalProps = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   flats: TFlat[];
+  isLoading: boolean;
 };
 
 export default function FlatSearchResultModal({
   open,
   setOpen,
   flats,
+  isLoading,
 }: TModalProps) {
   const handleClose = () => setOpen(false);
-
+  if (isLoading) {
+    return <Typography>Loading...</Typography>;
+  }
   return (
     <div>
       <Modal

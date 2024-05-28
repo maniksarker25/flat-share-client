@@ -17,7 +17,7 @@ export type TMeta = {
 
 export type TResponseSuccess = {
   data: any;
-  meta: TMeta;
+  meta?: TMeta;
   // statusCode: number;
 };
 

@@ -44,10 +44,13 @@ const FlatShareRequestPage = ({ params }: { params: TParams }) => {
           profession: values?.profession,
           email: userInfo?.email,
         };
-        const res = await createBookingRequest(bookingRequestValues);
-        if (res?.data?.id) {
+        const res = await createBookingRequest(bookingRequestValues).unwrap();
+        console.log(res);
+        if (res?.success) {
           toast.success("Booking request send successfully");
           router.push("/dashboard/user/my-requests");
+        } else {
+          toast.error("Something went wrong");
         }
       } catch (error) {
         toast.error("Something went wrong");

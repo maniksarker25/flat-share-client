@@ -1,3 +1,4 @@
+import { TResponseSuccess } from "@/types";
 import { tagTypes } from "../tagTypes";
 import { baseApi } from "./baseApi";
 
@@ -17,6 +18,9 @@ const flatApi = baseApi.injectEndpoints({
         method: "GET",
         params: arg,
       }),
+      // transformResponse: (response: TResponseSuccess) => {
+      //   return response?.data;
+      // },
       providesTags: [tagTypes.flats],
     }),
     deleteFlat: build.mutation({

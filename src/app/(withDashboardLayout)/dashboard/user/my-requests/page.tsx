@@ -9,8 +9,8 @@ const MyRequestsPage = () => {
   return (
     <Box>
       {!isLoading ? (
-        data?.length > 0 ? (
-          <MyBookingRequestTable bookingRequests={data} />
+        data?.data?.length > 0 ? (
+          <MyBookingRequestTable bookingRequests={data?.data} />
         ) : (
           <Typography variant="h3" component={"h3"} textAlign={"center"}>
             There is no booking request from you!!
