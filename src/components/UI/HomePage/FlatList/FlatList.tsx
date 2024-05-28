@@ -28,7 +28,7 @@ const FlatList = async () => {
         </Typography>
         <Grid container spacing={4} sx={{ mt: "20px" }}>
           {flats?.slice(0, 3)?.map((flat: TFlat, index: number) => (
-            <Grid item sm={6} md={4} key={index}>
+            <Grid item xs={12} sm={6} md={4} key={index}>
               <FlatCard key={index} flat={flat} />
             </Grid>
           ))}

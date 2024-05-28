@@ -7,10 +7,18 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { TFlat } from "@/types/flat";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function FlatCard({ flat }: { flat: TFlat }) {
   return (
-    <Card sx={{ height: 500, display: "flex", flexDirection: "column" }}>
+    <Card
+      sx={{
+        height: 500,
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+      }}
+    >
       <CardMedia
         sx={{ height: 200 }}
         image={flat?.photos[0]}

@@ -26,7 +26,7 @@ const AllFlatPage = async () => {
       </Box>
       <Grid container spacing={4} sx={{ mt: "20px" }}>
         {flats?.map((flat: TFlat, index: number) => (
-          <Grid item sm={6} md={4} key={index}>
+          <Grid item xs={12} sm={6} md={4} key={index}>
             <FlatCard key={index} flat={flat} />
           </Grid>
         ))}

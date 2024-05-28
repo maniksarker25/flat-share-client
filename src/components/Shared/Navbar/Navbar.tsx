@@ -88,10 +88,16 @@ const Navbar = () => {
                   horizontal: "right",
                 }}
               >
-                <MenuItem href={"/"}>Home</MenuItem>
-                <MenuItem href={"/about-us"}>About Us</MenuItem>
+                <MenuItem component={Link} href={"/"}>
+                  Home
+                </MenuItem>
+                <MenuItem component={Link} href={"/about-us"}>
+                  About Us
+                </MenuItem>
                 {isLoggedIn() && (
-                  <MenuItem href={"/dashboard/profile"}>My Profile</MenuItem>
+                  <MenuItem component={Link} href={"/dashboard/profile"}>
+                    My Profile
+                  </MenuItem>
                 )}
                 <Box>
                   {userInfo?.email ? (
