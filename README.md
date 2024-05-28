@@ -2,7 +2,7 @@
 - Make a flat share application with Typescript,NextJS,Redux,Material UI etc.
 
 - ## Host Link
-- Hosted in Vercel => http://localhost:3500/api/
+- Hosted in Vercel => https://flat-share-client-three.vercel.app/
 
 - ## Technology used
 - Typescript

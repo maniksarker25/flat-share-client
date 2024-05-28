@@ -3,7 +3,7 @@ import { TFlat } from "@/types/flat";
 import { Box, Container, Grid, Typography } from "@mui/material";
 
 const AllFlatPage = async () => {
-  const res = await fetch("http://localhost:3500/api/flat", {
+  const res = await fetch("https://flat-share-server-six.vercel.app/api/flat", {
     next: {
       revalidate: 30,
     },

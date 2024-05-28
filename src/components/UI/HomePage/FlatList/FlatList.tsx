@@ -4,7 +4,7 @@ import { TFlat } from "@/types/flat";
 import Link from "next/link";
 
 const FlatList = async () => {
-  const res = await fetch(`http://localhost:3500/api/flat`, {
+  const res = await fetch(`https://flat-share-server-six.vercel.app/api/flat`, {
     next: {
       revalidate: 30,
     },
