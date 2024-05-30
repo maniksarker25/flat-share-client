@@ -10,7 +10,7 @@ export const loginUser = async (values: FieldValues) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
-      // cache: "no-cache",
+      cache: "no-cache",
       credentials: "include",
     }
   );

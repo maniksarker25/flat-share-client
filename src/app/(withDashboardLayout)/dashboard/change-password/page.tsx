@@ -19,10 +19,10 @@ const ChangePasswordPage = () => {
     if (values.newPassword === values.retypeNewPassword) {
       try {
         const res = await changePassword(values).unwrap();
-        console.log(res);
+        // console.log(res);
         if (res?.success) {
-          logoutUser(router);
           toast.success("Password Changed Successfully");
+          logoutUser(router);
         } else {
           toast.error("Current password is incorrect");
         }

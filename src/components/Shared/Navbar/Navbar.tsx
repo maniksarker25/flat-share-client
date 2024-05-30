@@ -17,14 +17,8 @@ import navLogo from "@/assets/images/logo/house-share-logo-icon-design-vector-22
 import { getUserInfo, isLoggedIn } from "@/services/authServices";
 import { useRouter } from "next/navigation";
 import { logoutUser } from "@/services/actions/logoutUser";
-import { useGetAllUserQuery } from "@/redux/api/userApi";
 import { useState } from "react";
-import dynamic from "next/dynamic";
-// const AuthButton = dynamic(() => import("@/components/Shared/Navbar/Navbar"), {
-//   ssr: false,
-// });
 const Navbar = () => {
-  const { data } = useGetAllUserQuery({});
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();

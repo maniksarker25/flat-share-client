@@ -4,10 +4,9 @@ import { baseApi } from "./baseApi";
 const userApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getAllUser: build.query({
-      query: (arg: Record<string, any>) => ({
+      query: () => ({
         url: "/user",
         method: "GET",
-        params: arg,
       }),
       providesTags: [tagTypes.users],
     }),
@@ -36,7 +35,6 @@ const userApi = baseApi.injectEndpoints({
         url: "/user/profile",
         method: "GET",
       }),
-      providesTags: [tagTypes.users],
     }),
     changePassword: build.mutation({
       query: (data) => ({
