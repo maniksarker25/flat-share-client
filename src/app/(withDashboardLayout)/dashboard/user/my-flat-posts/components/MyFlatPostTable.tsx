@@ -6,8 +6,24 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Link from "next/link";
 import Image from "next/image";
+import { useDeleteFlatMutation } from "@/redux/api/flatApi";
+import { toast } from "sonner";
 
 const MyFlatPostTable = ({ flats }: { flats: TFlat[] }) => {
+  const [deleteFlat] = useDeleteFlatMutation();
+  const handleDeleteFlat = async (id: string) => {
+    try {
+      const res = await deleteFlat(id).unwrap();
+
+      if (res?.success) {
+        toast.success("Flat deleted successfully");
+      } else {
+        toast.error(res.message);
+      }
+    } catch (error: any) {
+      toast.error("Something went wrong");
+    }
+  };
   const columns: GridColDef[] = [
     {
       field: "photos",
@@ -32,25 +48,25 @@ const MyFlatPostTable = ({ flats }: { flats: TFlat[] }) => {
     { field: "rentAmount", headerName: "Rent Amount", flex: 1 },
     { field: "advancedAmount", headerName: "Advanced Amount", flex: 1 },
 
-    // {
-    //   field: "action",
-    //   headerName: "Action",
-    //   flex: 1,
-    //   headerAlign: "center",
-    //   align: "center",
-    //   renderCell: ({ row }) => {
-    //     return (
-    //       <Box>
-    //         <IconButton
-    //           //   onClick={() => handleDeleteFlat(row.id)}
-    //           aria-label="delete"
-    //         >
-    //           <DeleteIcon sx={{ color: "red" }} />
-    //         </IconButton>
-    //       </Box>
-    //     );
-    //   },
-    // },
+    {
+      field: "action",
+      headerName: "Action",
+      flex: 1,
+      headerAlign: "center",
+      align: "center",
+      renderCell: ({ row }) => {
+        return (
+          <Box>
+            <IconButton
+              onClick={() => handleDeleteFlat(row.id)}
+              aria-label="delete"
+            >
+              <DeleteIcon sx={{ color: "red" }} />
+            </IconButton>
+          </Box>
+        );
+      },
+    },
   ];
   return (
     <div>
