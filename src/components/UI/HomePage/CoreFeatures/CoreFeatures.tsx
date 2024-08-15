@@ -14,6 +14,7 @@ const coreFeatures = [
       "The core feature of any real estate property is its location. It could be in a prime area, which is crucial.",
     icon: (
       <svg
+        style={{ stroke: "gray" }}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -41,6 +42,7 @@ const coreFeatures = [
       "Modern technology and integrated technology are key aspects of contemporary living spaces.",
     icon: (
       <svg
+        style={{ stroke: "gray" }}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -63,6 +65,7 @@ const coreFeatures = [
       "Features such as green spaces, energy-efficient appliances, and materials used in the building emphasize eco-friendliness.",
     icon: (
       <svg
+        style={{ stroke: "gray" }}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -85,6 +88,7 @@ const coreFeatures = [
       "Access to transportation hubs, schools, healthcare facilities, shopping centers, and venues is essential.",
     icon: (
       <svg
+        style={{ stroke: "gray" }}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -107,6 +111,7 @@ const coreFeatures = [
       "Features like gated access, security cameras, intercom systems, and surveillance cameras enhance safety.",
     icon: (
       <svg
+        style={{ stroke: "gray" }}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -129,6 +134,7 @@ const coreFeatures = [
       "In today’s digital age, properties with smart home features provide modern conveniences and enhanced control.",
     icon: (
       <svg
+        style={{ stroke: "gray" }}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"

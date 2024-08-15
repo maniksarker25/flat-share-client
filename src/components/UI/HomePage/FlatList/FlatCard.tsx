@@ -13,7 +13,7 @@ export default function FlatCard({ flat }: { flat: TFlat }) {
   return (
     <Card
       sx={{
-        height: 500,
+        height: 400,
         display: "flex",
         flexDirection: "column",
         width: "100%",
@@ -21,13 +21,20 @@ export default function FlatCard({ flat }: { flat: TFlat }) {
       }}
     >
       <CardMedia
-        sx={{ height: 200 }}
+        sx={{
+          height: 250,
+          cursor: "pointer",
+          transition: "transform 0.5s ease",
+          "&:hover": {
+            transform: "scale(1.1)",
+          },
+        }}
         image={flat?.photos[0]}
         title="Flat image"
       />
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5" component="div">
-          Price : {flat?.rentAmount}
+          Rent : {flat?.rentAmount}
         </Typography>
         <Typography variant="body1" component="p">
           Number of bedrooms: {flat?.totalBedrooms}
@@ -38,9 +45,9 @@ export default function FlatCard({ flat }: { flat: TFlat }) {
         <Typography variant="body1" component="p">
           Location: {flat?.location}
         </Typography>
-        <Typography variant="body2" color="text.secondary" mt="10px">
+        {/* <Typography variant="body2" color="text.secondary" mt="10px">
           <span>Description</span>: {flat?.detailedDescription.slice(0, 70)}...
-        </Typography>
+        </Typography> */}
       </CardContent>
       <CardActions sx={{ justifyContent: "flex-end" }}>
         <Button
