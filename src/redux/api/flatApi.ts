@@ -23,6 +23,24 @@ const flatApi = baseApi.injectEndpoints({
       // },
       providesTags: [tagTypes.flats],
     }),
+    getSingleFlat: build.query({
+      query: (flatId) => ({
+        url: `/flat/${flatId}`,
+        method: "GET",
+      }),
+      // transformResponse: (response: TResponseSuccess) => {
+      //   return response?.data;
+      // },
+      providesTags: [tagTypes.flats],
+    }),
+    updateFlat: build.mutation({
+      query: (data) => ({
+        url: `/flat/${data?.id}`,
+        method: "PUT",
+        data: data?.body,
+      }),
+      invalidatesTags: [tagTypes.flats],
+    }),
     deleteFlat: build.mutation({
       query: (id) => ({
         url: `/flat/${id}`,
@@ -43,6 +61,8 @@ const flatApi = baseApi.injectEndpoints({
 export const {
   useCreateFlatMutation,
   useGetAllFlatsQuery,
+  useGetSingleFlatQuery,
+  useUpdateFlatMutation,
   useDeleteFlatMutation,
   useGetMyFlatsQuery,
 } = flatApi;

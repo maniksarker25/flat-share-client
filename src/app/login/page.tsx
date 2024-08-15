@@ -1,6 +1,7 @@
 "use client";
 import FSForm from "@/components/Forms/FSForm";
 import FSInput from "@/components/Forms/FSInput";
+import ShowCredentialModal from "@/components/UI/ShowCredentialModal/ShowCredentialModal";
 import { loginValidationSchema } from "@/schemas/login";
 import { loginUser } from "@/services/actions/loginUser";
 import setAccessTokenToCookies from "@/services/actions/setAccessTokenToCookie";
@@ -16,12 +17,14 @@ import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
 
 const LoginPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
 
   const handleLogin = async (values: FieldValues) => {
     try {
       const res = await loginUser(values);
+      console.log(res);
       if (res?.success) {
         storeUserInfo(res?.data?.token);
         setAccessTokenToCookies(res?.data?.token, {
@@ -122,6 +125,19 @@ const LoginPage = () => {
                 </Link>
               </Typography>
             </FSForm>
+            <Box
+              sx={{
+                mt: "15px",
+              }}
+            >
+              <Button variant="outlined" onClick={() => setIsModalOpen(true)}>
+                Show Credentials
+              </Button>
+              <ShowCredentialModal
+                open={isModalOpen}
+                setOpen={setIsModalOpen}
+              />
+            </Box>
           </Box>
         </Box>
       </Stack>

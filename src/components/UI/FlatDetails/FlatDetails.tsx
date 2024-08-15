@@ -95,7 +95,7 @@ const FlatDetails = ({ flat }: { flat: TFlat }) => {
           >
             <Button
               component={Link}
-              href={`/dashboard/user/flat-share-request/${flat.id}`}
+              href={`/dashboard/user/flat-share-request/${flat?.id}`}
             >
               Send Share Request
             </Button>

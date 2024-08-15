@@ -6,6 +6,8 @@ import { useDeleteFlatMutation } from "@/redux/api/flatApi";
 import { toast } from "sonner";
 import Image from "next/image";
 import { TMeta } from "@/types";
+import Link from "next/link";
+import EditIcon from "@mui/icons-material/Edit";
 const FlatTable = ({
   flats,
   meta,
@@ -68,17 +70,17 @@ const FlatTable = ({
       renderCell: ({ row }) => {
         return (
           <Box>
+            <Link href={`flat-management/edit/${row.id}`}>
+              <IconButton aria-label="delete">
+                <EditIcon sx={{ color: "blue" }} />
+              </IconButton>
+            </Link>
             <IconButton
               onClick={() => handleDeleteFlat(row.id)}
               aria-label="delete"
             >
               <DeleteIcon sx={{ color: "red" }} />
             </IconButton>
-            {/* <Link href={`/dashboard/admin/doctors/edit/${row.id}`}>
-              <IconButton aria-label="delete">
-                <EditIcon />
-              </IconButton>
-            </Link> */}
           </Box>
         );
       },

@@ -16,7 +16,7 @@ const PostFlatInfoPage = () => {
   const [images, setImages] = useState<string[]>([]);
   const [imgError, setImgError] = useState("");
   const [error, setError] = useState("");
-  const [createFlat] = useCreateFlatMutation();
+  const [createFlat, { isLoading }] = useCreateFlatMutation();
   const router = useRouter();
   const handleFileChange = async (
     event: React.ChangeEvent<HTMLInputElement>
@@ -194,7 +194,7 @@ const PostFlatInfoPage = () => {
                     Upload Flat Photos
                   </Typography>
                   <Grid container spacing={2}>
-                    {images.map((image, index) => (
+                    {images?.map((image, index) => (
                       <Grid item xs={6} md={4} key={index}>
                         <Box
                           sx={{
@@ -244,13 +244,13 @@ const PostFlatInfoPage = () => {
               )}
               <Button
                 fullWidth={true}
-                disabled={images.length < 3}
+                disabled={images?.length < 3}
                 sx={{
                   margin: "20px 0px",
                 }}
                 type="submit"
               >
-                Submit
+                {isLoading ? "Posting..." : "  Submit"}
               </Button>
             </FSForm>
           </Box>

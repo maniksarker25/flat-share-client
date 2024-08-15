@@ -57,6 +57,11 @@ const MyFlatPostTable = ({ flats }: { flats: TFlat[] }) => {
       renderCell: ({ row }) => {
         return (
           <Box>
+            <IconButton aria-label="delete">
+              <Link href={`my-flat-posts/edit/${row?.id}`}>
+                <EditIcon sx={{ color: "blue" }} />
+              </Link>
+            </IconButton>
             <IconButton
               onClick={() => handleDeleteFlat(row.id)}
               aria-label="delete"
