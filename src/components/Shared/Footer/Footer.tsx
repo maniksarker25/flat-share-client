@@ -121,7 +121,7 @@ const Footer = () => {
           sx={{ mt: "20px" }}
           textAlign={"center"}
         >
-          &copy;2024 MS Health Care.All Rights Reserved
+          &copy;2024 Flat Share.All Rights Reserved
         </Typography>
       </Container>
     </Box>
