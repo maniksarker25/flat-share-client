@@ -6,7 +6,6 @@ import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
 
 const EditProfile = ({ userProfileInfo }: any) => {
-  console.log(userProfileInfo);
   const [updateProfile] = useUpdateProfileMutation();
   const handleUpdateProfile = async (values: FieldValues) => {
     try {
