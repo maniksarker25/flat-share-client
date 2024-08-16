@@ -35,6 +35,7 @@ const userApi = baseApi.injectEndpoints({
         url: "/user/profile",
         method: "GET",
       }),
+      providesTags: [tagTypes.users, tagTypes.profile],
     }),
     changePassword: build.mutation({
       query: (data) => ({
@@ -50,7 +51,7 @@ const userApi = baseApi.injectEndpoints({
         method: "PATCH",
         data,
       }),
-      invalidatesTags: [tagTypes.users],
+      invalidatesTags: [tagTypes.users, tagTypes.profile],
     }),
   }),
 });
